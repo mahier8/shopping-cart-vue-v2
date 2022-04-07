@@ -1,5 +1,6 @@
 <template>
   <Wrapper>
+    <!-- a for each loop for our products array in our index.js, which we pass into our ProductCard as PROPS  -->
     <ProductCard
       v-for="product in products"
       :key="product.id"
@@ -26,8 +27,11 @@ export default {
   },
   computed: {
     products() {
+      // we get our products from the array
       const productsSort = this.$store.getters["products"];
+      // we sort this array
       return productsSort.sort((a, b) => {
+        // it looks like we compare models and return -1 or 1 or 0
         if (a.model < b.model) {
           return -1;
         }

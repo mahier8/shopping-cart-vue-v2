@@ -15,7 +15,9 @@
           <strong>{{ qty }}</strong>
         </div>
       </div>
+      <!-- we read the item total here -->
       <div class="item-total">Total: ₿ {{ itemTotal }}</div>
+      <!-- we add an event here to remove the item from the cart -->
       <button @click="remove">Remove</button>
     </div>
   </li>
@@ -23,6 +25,7 @@
 
 <script>
 export default {
+  // what props we expect, matching our Cart.vue
   props: [
     "id",
     "type",
@@ -35,11 +38,13 @@ export default {
     "qty",
   ],
   computed: {
+    // we calculate the itemTotal here
     itemTotal() {
       return (this.price * this.qty).toFixed(2);
     },
   },
   methods: {
+    // A method to remove an item from a cart
     remove() {
       this.$store.dispatch("removeFromCart", { id: this.id });
     },

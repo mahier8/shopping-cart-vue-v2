@@ -2,8 +2,10 @@
   <Wrapper>
     <div class="container-cart">
       <h2>Your Cart</h2>
+      <!--  -->
       <h3>Total Amount: ₿ {{ cartTotal }}</h3>
       <ul>
+        <!-- a for each loop for our cart array in our index.js, which we pass into our CartCard as PROPS  -->
         <CartCard
           v-for="product in cartProducts"
           :key="product.id"
@@ -33,9 +35,11 @@ export default {
     CartCard, Wrapper
   },
   computed: {
+    // we calculate the total in our cart
     cartTotal() {
       return this.$store.getters["totalSum"].toFixed(2);
     },
+    // we get the cart array which originally started empty, but now has some products in it
     cartProducts() {
       return this.$store.getters["cart"];
     },

@@ -1,5 +1,6 @@
 <template>
   <Wrapper>
+    <!-- a for each loop for our products array in our index.js, which we pass into our ProductCard as PROPS  -->
     <ProductCard
       v-for="product in products"
       :key="product.id"

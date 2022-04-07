@@ -1,4 +1,6 @@
 export default {
+  // these will update the store
+  // to add to the cart
   addProductToCart(state, payload) {
     const productData = payload;
     const productInCartIndex = state.cart.findIndex(
@@ -24,6 +26,7 @@ export default {
     state.total += productData.price;
   },
 
+  // to delete from the cart
   removeProductFromCart(state, payload) {
     const prodId = payload.id;
     const productInCartIndex = state.cart.findIndex(

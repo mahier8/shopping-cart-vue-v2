@@ -7,6 +7,7 @@
 </template>
 
 <script>
+// just a wrapper surrounding our components
 export default {
   name: "MyWrapper",
 }

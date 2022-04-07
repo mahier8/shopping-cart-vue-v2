@@ -4,12 +4,16 @@ import rootMutations from "./mutations.js";
 import rootActions from "./actions.js";
 import rootGetters from "./getters.js";
 
+// 1. to use vuex we first need to create a store (the store is reactive)
+// the store will need 2 things, the initial state and mutations
 const store = createStore({
   state() {
     return {
+      // our cart starts empty
       cart: [],
       total: 0,
       qty: 0,
+      // our products array
       products: [
         {
           id: 1,
@@ -704,8 +708,12 @@ const store = createStore({
       ],
     };
   },
+  // 2. the mutations (the only way to change the store), go to mutations.js
+  // mutations are what actually update the vuex state 
   mutations: rootMutations,
+  // actions are methods that call (commit) muatations
   actions: rootActions,
+  // in our example, we have a specific file for getters
   getters: rootGetters,
 });
 

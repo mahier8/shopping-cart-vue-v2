@@ -3,9 +3,11 @@
     <div class="image-container">
       <img class="img-style" :src="imgSrc" :alt="brand + model" />
     </div>
+    <!-- we read the price data we receive via props  -->
     <p class="price-label">₿ {{ price.toFixed(2) }}</p>
     <button @click="addToCart">Add to Cart</button>
     <span class="product-title">
+      <!-- we read the data we receive via props  -->
       {{ brand }} {{ model }} {{ color }} {{ capacity }}
     </span>
   </div>
@@ -14,6 +16,7 @@
 <script>
 export default {
   name: "ProductCard",
+  // the props we expect which match our data in the store file index.js
   props: [
     "id",
     "type",
@@ -25,6 +28,7 @@ export default {
     "price",
   ],
   methods: {
+    // a method to trigger an action, to add an object to the cart
     addToCart() {
       this.$store.dispatch("addToCart", {
         id: this.id,

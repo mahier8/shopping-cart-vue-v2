@@ -9,3 +9,4 @@ export default {
     context.commit("removeProductFromCart", payload);
   },
 };
+// similar to methods, will help handle updating the state
